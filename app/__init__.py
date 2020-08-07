@@ -1,13 +1,11 @@
+#app/__init__.py
 from flask import Flask
 import os
 
-def create_app(setting = None):
-    app = Flask(__name__)
+def create_app(setting):
 
-    # app.config.from_object(app_config['development'])
-    from .config import DevelopmentConfig
-    app.config.from_object(DevelopmentConfig)
-
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_object(setting)
 
     from .models import db
     db.init_app(app)

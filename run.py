@@ -1,4 +1,4 @@
 from .app import create_app
-from .app.config import TestingConfig, DevelopmentConfig
+from instance.config import app_config
 
-myapp = create_app(DevelopmentConfig)
+myapp = create_app(app_config["development"])
