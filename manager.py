@@ -4,7 +4,6 @@ from app.models import db
 from instance.config import app_config
 
 app = create_app(app_config["development"])
-app.config["ENV"] = "DEVELOPMENT"
 instance_manager = Manager(app)
 
 print(app.config)
