@@ -2,9 +2,9 @@ import os
 import random
 
 
-class Config():
+class Config(object):
     """Parent configuration class."""
-    ENV = os.getenv('FLASK_ENV')
+    ENV = "DEVELOPMENT"
     DEBUG = False
     CSRF_ENABLED = True
     SECRET_KEY= os.urandom(20)
@@ -20,7 +20,6 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     """Configurations for Testing, with a separate test database."""
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://msb:qwe@localhost/test_0'
     DEBUG = True
 
 class StagingConfig(Config):
