@@ -10,9 +10,13 @@ print(app.config)
 
 @instance_manager.command
 def create_all():
-    print("ejecutando comando")
+    print("creating all tables")
     db.create_all()
 
+@instance_manager.command
+def delete_tables():
+    print("deleting all tables")
+    db.drop_all()
 if __name__ == "__main__":
     instance_manager.run()
 
