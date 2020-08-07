@@ -1,8 +1,9 @@
 from flask_script import Manager
 from app import create_app
 from app.models import db
+from instance.config import app_config
 
-app = create_app()
+app = create_app(app_config["development"])
 app.config["ENV"] = "DEVELOPMENT"
 instance_manager = Manager(app)
 
