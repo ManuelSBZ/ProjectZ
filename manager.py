@@ -3,7 +3,7 @@ from app import create_app
 from app.models import db
 from instance.config import app_config
 
-app = create_app(app_config["development"])
+app = create_app("instance.config.DevelopmentConfig")
 instance_manager = Manager(app)
 
 print(app.config)
