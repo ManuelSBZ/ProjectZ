@@ -1,3 +1,5 @@
 from .default import *
 
-SQLALCHEMY_DATABASE_URI ="mysql+pymysql://msb:qwe@localhost/dev_0"
+SQLALCHEMY_DATABASE_URI = os.getenv("URI")
+ENV = "DEVELOPMENT"
+DEBUG = True

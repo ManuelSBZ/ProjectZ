@@ -2,8 +2,11 @@ from flask_script import Manager
 from app import create_app
 from app.models import db
 from instance.config import app_config
+import os
 
-app = create_app("instance.config.DevelopmentConfig")
+
+setting = os.getenv("SETTINGS")
+app = create_app(app_config[setting])
 instance_manager = Manager(app)
 
 print(app.config)

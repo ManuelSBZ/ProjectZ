@@ -1,19 +1,23 @@
 import os
 import random
+from dotenv import load_dotenv
+from pathlib import Path
 
+
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
 
 class Config(object):
     """Parent configuration class."""
-    ENV = "DEVELOPMENT"
-    DEBUG = False
+    DEBUG=False
     CSRF_ENABLED = True
     SECRET_KEY= os.urandom(20)
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://msb:qwe@localhost/test_0'
+    SQLALCHEMY_DATABASE_URI = os.getenv("URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
 
 class DevelopmentConfig(Config):
     """Configurations for Development."""
+    ENV = "DEVELOPMENT"
     DEBUG = True
 
 
